@@ -1,0 +1,4 @@
+server:
+  port: 9052
+  servlet:
+    context-path: /poli/v1
