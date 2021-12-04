@@ -21,7 +21,7 @@ public class ProjectTaskController {
         return projectTaskService.findAll();
     }
 
-    @PostMapping
+    @PutMapping
     ProjectTask save(ProjectTask projectTask){
         return  projectTaskService.save(projectTask);
     }

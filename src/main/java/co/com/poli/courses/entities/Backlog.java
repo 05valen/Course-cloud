@@ -31,10 +31,10 @@ public class Backlog {
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Project project;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "backlog",fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
+  //  @JsonManagedReference
+    //@OneToMany(mappedBy = "backlog",fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     // @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    private List<ProjectTask> projectTasks;
+//    private List<ProjectTask> projectTasks;
 
     @Override
     public boolean equals(Object o) {
