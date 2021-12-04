@@ -33,10 +33,10 @@ public class Project {
     @NotEmpty(message = "El description no puede ser vacio")
     @Column(name = "description",nullable = true)
     private String description;
-    @Column(name = "startDate")
-    private Date startDate;
-    @Column(name = "endDate")
-    private Date endDate;
+   // @Column(name = "startDate")
+    //private Date startDate;
+    //@Column(name = "endDate")
+    //private Date endDate;
 
     @OneToOne(fetch = FetchType.EAGER,cascade =CascadeType.PERSIST)
     @JoinColumn(name = "backlog_id")
