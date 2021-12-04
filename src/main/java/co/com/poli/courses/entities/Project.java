@@ -1,5 +1,6 @@
 package co.com.poli.courses.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -21,7 +22,6 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
     @NotEmpty(message = "El projectName no puede ser vacio")
     @Column(name = "projectName" ,unique = true,nullable = true)
@@ -34,7 +34,8 @@ public class Project {
     @Column(name = "description",nullable = true)
     private String description;
    // @Column(name = "startDate")
-    //private Date startDate;
+   @JsonFormat(pattern="yyyy-MM-dd")
+    private Date startDate;
     //@Column(name = "endDate")
     //private Date endDate;
 
