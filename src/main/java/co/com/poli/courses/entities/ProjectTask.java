@@ -53,7 +53,7 @@ public class ProjectTask {
     private String projectIdentifier;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "projectTask_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Backlog backlog;

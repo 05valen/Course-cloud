@@ -15,6 +15,7 @@ import java.util.Objects;
 @Table(name = "projects")
 @AllArgsConstructor
 @NoArgsConstructor
+
 @Builder
 public class Project {
 
@@ -37,8 +38,8 @@ public class Project {
     @Column(name = "endDate")
     private Date endDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
+    @OneToOne(fetch = FetchType.EAGER,cascade =CascadeType.PERSIST)
+    @JoinColumn(name = "backlog_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Backlog backlog;
 
