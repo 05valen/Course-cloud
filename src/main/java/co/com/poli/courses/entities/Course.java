@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Setter
 @Getter
@@ -17,6 +18,7 @@ public class Course extends EntityBase{
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "instructor_id")
+    @NotEmpty (message = "El projectIdentifier no puede ser vacio")
     private Instructor instructor;
 
     @Override
