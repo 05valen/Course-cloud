@@ -33,11 +33,10 @@ public class Project {
     @NotEmpty(message = "El description no puede ser vacio")
     @Column(name = "description",nullable = true)
     private String description;
-   // @Column(name = "startDate")
    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startDate;
-    //@Column(name = "endDate")
-    //private Date endDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
+  private Date endDate;
 
     @OneToOne(fetch = FetchType.EAGER,cascade =CascadeType.PERSIST)
     @JoinColumn(name = "backlog_id")
