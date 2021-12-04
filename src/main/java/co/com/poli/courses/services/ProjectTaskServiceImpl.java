@@ -17,7 +17,7 @@ public class ProjectTaskServiceImpl implements ProjectTaskService {
 
 
     @Override
-    public ProjectTask save(ProjectTask projectTask) {
+    public ProjectTask create(ProjectTask projectTask) {
         return projectTaskRepository.save(projectTask);
     }
 

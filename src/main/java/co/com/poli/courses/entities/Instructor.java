@@ -23,6 +23,7 @@ public class Instructor extends EntityBase{
     @OneToMany(mappedBy = "instructor",
             fetch = FetchType.EAGER, cascade =CascadeType.PERSIST)
     private List<Course> courses;
+
     @Override
     public boolean equals(Object o) {
         return super.equals(o);

@@ -11,6 +11,6 @@ import java.util.List;
 public interface ProjectRepository  extends JpaRepository<Project,Long> {
 
     List<Project> findAll();
-    Project save(Project project);
+    Project create(Project project);
 
 }
