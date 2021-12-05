@@ -21,15 +21,14 @@ public class ProjectTaskController {
         return projectTaskService.findAll();
     }
 
-    @PutMapping
-    ProjectTask save(ProjectTask projectTask){
+    @PostMapping
+    ProjectTask save(@RequestBody ProjectTask projectTask){
         return  projectTaskService.save(projectTask);
     }
 
-     @DeleteMapping("/{id}")
-    void  deleteById(@PathVariable Long id){
-
-        projectTaskService.deleteById(id);
+     @DeleteMapping("/{id}/{pi}")
+    void  deleteById(@PathVariable Long id,@PathVariable Long pi){
+         projectTaskService.deleteById(id);
     }
 
 

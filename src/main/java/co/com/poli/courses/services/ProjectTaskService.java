@@ -7,5 +7,6 @@ public interface ProjectTaskService {
 
     ProjectTask save(ProjectTask projectTask);
     void deleteById(Long id);
+
     List<ProjectTask> findAll();
 }

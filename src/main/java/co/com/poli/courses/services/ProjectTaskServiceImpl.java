@@ -28,6 +28,6 @@ public class ProjectTaskServiceImpl implements ProjectTaskService {
 
     @Override
     public List<ProjectTask> findAll() {
-        return null;
+        return projectTaskRepository.findAll();
     }
 }

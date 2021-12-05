@@ -1,6 +1,7 @@
 package co.com.poli.courses.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,9 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.Objects;
 
@@ -24,39 +23,44 @@ public class ProjectTask {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotEmpty(message = "El id no puede ser vacio")
-    @Column(name = "id",nullable = true)
     private Long id;
     @NotEmpty(message = "El name no puede ser vacio")
-    @Column(name = "name",nullable = true)
+    @Column(name = "name",nullable = false)
     private String name;
     @NotEmpty(message = "El summary no puede ser vacio")
-    @Column(name = "summary",nullable = true)
+    @Column(name = "summary",nullable = false)
     private String summary;
     @Column(name = "acceptanceCriteria")
-    private String description;
+    private String acceptanceCriteria;
+    @Pattern(regexp="^(Not Stared|in progress|completed|deleted)$",message="invalid code")
     @Column(name = "status")
-    private Date status;
-    @Size(min = 5, max = 7, message = "El priority de usuario debe tener entre 1 y 5 caracteres")
+    private String status;
+    @Min(1)
+    @Max(5)
     @Column(name = "priority")
     private int priority;
-    @Size (min = 1, max = 8, message = "Las hours  debe tener entre 8 y 8 caracteres")
+    @Min(1)
+    @Max(8)
     @Positive (message = "La cantidad debe ser mayor que cero")
     @Column(name = "hours")
     private double hours;
-    @Column(name = "starDate")
-    private Date starDate;
-    @Column(name = "endDate")
-    private Date endDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private String startDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private String endDate;
     @NotEmpty(message = "No se puede actualizar")
     @Column(name = "projectIdentifier",updatable = false)
     private String projectIdentifier;
 
+
+
+
     @JsonBackReference
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "projectTask_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "backlog_id")
+    @NotEmpty (message = "El projectIdentifier no puede ser vacio")
     private Backlog backlog;
+
 
     @Override
     public boolean equals(Object o) {

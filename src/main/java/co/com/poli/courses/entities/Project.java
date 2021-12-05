@@ -1,7 +1,9 @@
 package co.com.poli.courses.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -17,7 +20,6 @@ import java.util.Objects;
 @Table(name = "projects")
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Builder
 public class Project {
 
@@ -35,14 +37,14 @@ public class Project {
     @NotEmpty(message = "El description no puede ser vacio")
     @Column(name = "description",nullable = false)
     private String description;
-   @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startDate;
     @JsonFormat(pattern="yyyy-MM-dd")
-  private Date endDate;
+    private Date endDate;
 
-    @OneToOne(fetch = FetchType.EAGER,cascade =CascadeType.PERSIST)
-    @JoinColumn(name = "backlog_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.EAGER,cascade =CascadeType.PERSIST,mappedBy = "project")
     private Backlog backlog;
 
     @Override

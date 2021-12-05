@@ -23,21 +23,26 @@ public class Backlog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank(message = "El projectIdentifier no puede ser vacio")
+    @Column(name = "projectIdentifier",nullable = false)
     private String projectIdentifier;
+
+
+
 
 
     @JsonBackReference
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "project_id")
-    @NotEmpty (message = " no puede ser vacio")
+    @NotEmpty (message = "El projectIdentifier no puede ser vacio")
     private Project project;
 
-  //  @JsonManagedReference
-    //@OneToMany(mappedBy = "backlog",fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
-    // @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-//    private List<ProjectTask> projectTasks;
+
+
+
+
+
+    @OneToMany(mappedBy = "backlog",fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    private List<ProjectTask> projectTasks;
 
     @Override
     public boolean equals(Object o) {
