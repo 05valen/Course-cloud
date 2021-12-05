@@ -24,14 +24,14 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "El projectName no puede ser vacio")
-    @Column(name = "projectName" ,unique = true,nullable = true)
+    @Column(name = "projectName" ,unique = true,nullable = false)
     private String projectName;
     @NotEmpty(message = "El projectIdentifier no puede ser vacio")
-    @Column(name = "projectIdentifier", unique = true,nullable = true,updatable = false)
+    @Column(name = "projectIdentifier", unique = true,nullable = false,updatable = false)
     @Size (min = 5, max = 7, message = "El projectIdentifier de usuario debe tener entre 5y 7 caracteres")
     private String projectIdentifier;
     @NotEmpty(message = "El description no puede ser vacio")
-    @Column(name = "description",nullable = true)
+    @Column(name = "description",nullable = false)
     private String description;
    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startDate;
