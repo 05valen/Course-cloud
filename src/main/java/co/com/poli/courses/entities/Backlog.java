@@ -1,10 +1,12 @@
 package co.com.poli.courses.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 import java.util.Objects;
@@ -20,15 +22,16 @@ import java.util.Objects;
 public class Backlog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false,unique = true,nullable = false)
     private Long id;
-    @NotEmpty(message = "El projectIdentifier no puede ser vacio")
+
+    @NotBlank(message = "El projectIdentifier no puede ser vacio")
     private String projectIdentifier;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    @NotEmpty (message = " no puede ser vacio")
     private Project project;
 
   //  @JsonManagedReference
