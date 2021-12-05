@@ -4,6 +4,8 @@ package co.com.poli.courses.controller;
 import co.com.poli.courses.entities.Backlog;
 import co.com.poli.courses.services.BacklogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,8 +31,19 @@ public class BacklogController {
     }
 
 
+    @RequestMapping(method = RequestMethod.POST, value = "/addemployee")
+    public ResponseEntity<Backlog> addEmployee(@RequestBody Backlog backlog) {
+        for (Backlog p: backlogService.findAll()) {
+            if(backlog.getProjectIdentifier() == p.getProjectIdentifier()){
 
-    
+            }
+            
+        }
+        backlogService.save(backlog);
+        System.out.println(backlog);
+        return new ResponseEntity<Backlog>(backlog, HttpStatus.CREATED);
+    }
+
 
 
 /*
