@@ -26,19 +26,10 @@ public class Backlog {
     @Column(name = "projectIdentifier",nullable = false)
     private String projectIdentifier;
 
-
-
-
-
     @JsonBackReference
     @OneToOne(fetch = FetchType.EAGER)
     @NotEmpty (message = "El projectIdentifier no puede ser vacio")
     private Project project;
-
-
-
-
-
 
     @OneToMany(mappedBy = "backlog",fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})

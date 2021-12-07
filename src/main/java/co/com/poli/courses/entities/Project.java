@@ -38,9 +38,9 @@ public class Project {
     @Column(name = "description",nullable = false)
     private String description;
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date startDate;
+    private String startDate;
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date endDate;
+    private String endDate;
 
 
     @JsonManagedReference
