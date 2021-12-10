@@ -1,5 +1,6 @@
 package co.com.poli.courses.entities;
 
+import co.com.poli.courses.commons.EntityBase;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Entity
 @Table(name = "courses")
-public class Course extends EntityBase{
+public class Course extends EntityBase {
 
     @Column(name = "name")
     private String name;

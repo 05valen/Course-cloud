@@ -1,5 +1,6 @@
 package co.com.poli.courses.entities;
 
+import co.com.poli.courses.commons.EntityBase;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,11 +22,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Project {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Project extends EntityBase {
 
     @NotBlank(message = "El projectName no puede ser vacio")
     @Column(name = "projectName" ,unique = true,nullable = false)
@@ -34,7 +31,8 @@ public class Project {
     @Column(name = "projectIdentifier", unique = true,nullable = false,updatable = false)
     @Size (min = 5, max = 7, message = "El projectIdentifier de usuario debe tener entre 5y 7 caracteres")
     private String projectIdentifier;
-    @NotEmpty(message = "El description no puede ser vacio")
+    @NotEmpty(message = "description no puede ser vacio")
+    @NotBlank(message = "description no puede ser vacio")
     @Column(name = "description",nullable = false)
     private String description;
     @JsonFormat(pattern="yyyy-MM-dd")
@@ -49,14 +47,11 @@ public class Project {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Project project = (Project) o;
-        return Objects.equals(id, project.id);
+        return super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return super.hashCode();
     }
 }

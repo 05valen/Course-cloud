@@ -1,4 +1,4 @@
-package co.com.poli.courses.entities;
+package co.com.poli.courses.commons;
 
 import lombok.Getter;
 import lombok.Setter;

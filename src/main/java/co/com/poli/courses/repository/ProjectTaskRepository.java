@@ -13,4 +13,6 @@ public interface ProjectTaskRepository extends JpaRepository<ProjectTask,Long> {
     ProjectTask save(ProjectTask projectTask);
     void deleteById(Long id);
     List<ProjectTask> findAll();
+
+
 }

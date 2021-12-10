@@ -23,7 +23,7 @@ public class BacklogRepositoryMockTest {
         Backlog backlog = Backlog.builder()
                 .projectIdentifier("123456")
                // .project(Project.builder().id(1L).build())
-                .projectTasks((List<ProjectTask>) ProjectTask.builder().id(1L).build())
+                .projectTasks((List<ProjectTask>) ProjectTask.builder().backlog(null).build())
                 .build();
         backlogRepository.save(backlog);
         List<Backlog> backlogs = backlogRepository.findAll();

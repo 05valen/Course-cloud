@@ -1,12 +1,10 @@
 package co.com.poli.courses.entities;
 
+import co.com.poli.courses.commons.EntityBase;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -14,16 +12,14 @@ import java.util.Date;
 import java.util.Objects;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "projectTasks")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProjectTask {
+public class ProjectTask extends EntityBase {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @NotEmpty(message = "El name no puede ser vacio")
     @Column(name = "name",nullable = false)
     private String name;
@@ -64,14 +60,11 @@ public class ProjectTask {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProjectTask that = (ProjectTask) o;
-        return Objects.equals(id, that.id);
+        return super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return super.hashCode();
     }
 }

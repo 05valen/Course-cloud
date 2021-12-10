@@ -1,5 +1,6 @@
 package co.com.poli.courses.entities;
 
+import co.com.poli.courses.commons.EntityBase;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -19,10 +20,8 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Backlog {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Backlog extends EntityBase {
+
     @Column(name = "projectIdentifier",nullable = false)
     private String projectIdentifier;
 
@@ -37,14 +36,11 @@ public class Backlog {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Backlog backlog = (Backlog) o;
-        return Objects.equals(id, backlog.id);
+        return super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return super.hashCode();
     }
 }

@@ -1,5 +1,6 @@
 package co.com.poli.courses.entities;
 
+import co.com.poli.courses.commons.EntityBase;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "instructors")
-public class Instructor extends EntityBase{
+public class Instructor extends EntityBase {
 
     @Column(name = "name")
     private String name;

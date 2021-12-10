@@ -1,6 +1,7 @@
 package co.com.poli.courses.services;
 
 import co.com.poli.courses.entities.Backlog;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 public interface BacklogService {
 
     List<Backlog> findAll();
-    Backlog save(Backlog backlog);
+    ResponseEntity<Backlog> save(Backlog backlog);
 
 
 
