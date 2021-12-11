@@ -37,7 +37,6 @@ public class BacklogServiceImpl implements BacklogService {
                 errorResponse.put("message", "Ya existe un backlog asociado al proyecto con ProjectIdentifier: " + p.getProjectIdentifier());
                 errorResponse.put("status", HttpStatus.BAD_REQUEST.toString());
 
-
                 return new ResponseEntity(errorResponse, HttpStatus.BAD_REQUEST);
             }
             if(backlog.getProjectIdentifier().equals("")) {

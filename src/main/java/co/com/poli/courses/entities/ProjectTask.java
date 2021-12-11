@@ -49,8 +49,6 @@ public class ProjectTask extends EntityBase {
     private String projectIdentifier;
 
 
-
-
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "backlog_id")

@@ -1,6 +1,4 @@
 package co.com.poli.courses.services;
-
-
 import co.com.poli.courses.entities.Project;
 import co.com.poli.courses.entities.ProjectTask;
 import co.com.poli.courses.repository.ProjectTaskRepository;
@@ -14,7 +12,6 @@ import java.util.*;
 
 @Service
 public class ProjectTaskServiceImpl implements ProjectTaskService {
-
 
     @Autowired
     private ProjectTaskRepository projectTaskRepository;
@@ -54,9 +51,9 @@ public class ProjectTaskServiceImpl implements ProjectTaskService {
         return projectTaskRepository.findAll();
     }
 
-    public List<ProjectTask> listProjectTaskByID(Long id){
-        return null;
-    }
+   // public List<ProjectTask> listProjectTaskByID(Long id){
+    //   return null;
+    //}
 
     public ResponseEntity<String> horas(String projectIdentifier){
         double horas=0;

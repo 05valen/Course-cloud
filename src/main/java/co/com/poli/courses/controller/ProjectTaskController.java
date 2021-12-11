@@ -27,6 +27,7 @@ public class ProjectTaskController {
     @RequestMapping(method = RequestMethod.POST, value = "")
     public ResponseEntity<ProjectTask> save(@Valid @RequestBody ProjectTask projectTask) {
         return  projectTaskService.save(projectTask);}
+
     @RequestMapping(method = RequestMethod.GET, value = "/hours/project/{id}")
     public ResponseEntity<String> horas(@PathVariable("id") String id) {
         return  projectTaskService.horas(id);

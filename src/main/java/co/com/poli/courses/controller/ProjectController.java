@@ -22,10 +22,12 @@ public class ProjectController {
     List<Project> findAll(){
         return projectService.findAll();
     }
+
     @RequestMapping(method = RequestMethod.POST, value = "")
     public ResponseEntity<Project> save(@Valid @RequestBody Project project) {
         return  projectService.save(project);
     }
+
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity<List<ProjectTask>> tareas(@PathVariable("id") String id) {
         return  projectService.tareas(id);

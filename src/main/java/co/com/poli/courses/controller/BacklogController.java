@@ -32,7 +32,7 @@ public class BacklogController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "")
-    public ResponseEntity<Backlog> addEmployee(@Valid @RequestBody Backlog backlog) {
+    public ResponseEntity<Backlog> addBacklog(@Valid @RequestBody Backlog backlog) {
         return  backlogService.save(backlog);
     }
 }
