@@ -12,6 +12,4 @@ public interface BacklogService {
     List<Backlog> findAll();
     ResponseEntity<Backlog> save(Backlog backlog);
 
-
-
 }

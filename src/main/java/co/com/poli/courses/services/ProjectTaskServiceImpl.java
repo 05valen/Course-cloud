@@ -93,7 +93,7 @@ public class ProjectTaskServiceImpl implements ProjectTaskService {
         if(!projectTaskList.isEmpty()){
             HttpHeaders headers = new HttpHeaders();
             headers.add("Content-Type", "application/json; charset=UTF-8");
-            headers.add("uri", "/project");
+            headers.add("uri", "/taks/project/"+projectIdentifier);
             ResponseEntity response = new ResponseEntity<List<ProjectTask>>( projectTaskList, headers, HttpStatus.OK);
             return response;
         }else{
