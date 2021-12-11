@@ -23,9 +23,9 @@ public class ProjectRepositoryMockTest {
     public void when_findAll_return_ListProject(){
 
         Project project= Project.builder()
-        .projectName("f0ge")
+        .projectName("Banco Caja social")
        .projectIdentifier("h7f99")
-                .description("fsdfdsf")
+                .description("tes2")
                 .startDate("2021-10-21")
                 .endDate("2021-11-21")
                 .backlog( null)
