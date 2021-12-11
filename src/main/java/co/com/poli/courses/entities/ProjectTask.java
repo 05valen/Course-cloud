@@ -52,7 +52,7 @@ public class ProjectTask extends EntityBase {
 
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "backlog_id")
     @NotEmpty (message = "El projectIdentifier no puede ser vacio")
     private Backlog backlog;
